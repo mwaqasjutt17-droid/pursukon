@@ -8,9 +8,36 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",
       "dest": "/api/index.ts"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/Frontend/pur_sakoon/images/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "/(animations|theme|dark-theme)\\.css",
+      "dest": "/Frontend/pur_sakoon/$1.css",
+      "headers": {
+        "Cache-Control": "public, max-age=86400"
+      }
+    },
+    {
+      "src": "/(about|book|services|team)\\.html",
+      "dest": "/Frontend/pur_sakoon/$1.html",
+      "headers": {
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      }
+    },
+    {
+      "src": "/",
+      "dest": "/Frontend/pur_sakoon/index.html",
+      "headers": {
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      }
     }
   ]
 }
-

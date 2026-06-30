@@ -419,7 +419,8 @@
   <!-- Video BG with fallback -->
   <div class="hero-video-wrapper">
     <!-- Critical: All inline attributes required for mobile playback -->
-    <video autoplay loop muted playsinline webkit-playsinline preload="auto" class="bg-video-layer" aria-hidden="true">
+    <!-- preload=none: Page fast load ke liye - video tab load ho jab zaroorat ho -->
+    <video autoplay loop muted playsinline webkit-playsinline preload="none" class="bg-video-layer" aria-hidden="true" id="heroBgVideo">
       <source src="./images/video.mp4" type="video/mp4">
     </video>
     <!-- Fallback background for low-power mode devices -->
@@ -670,7 +671,8 @@
                 <div class="video-wrapper position-relative p-2 shadow-lg" style="background: #ffffff; border-radius: 32px; border: 1px solid rgba(13, 92, 81, 0.08);">
                     <div class="ratio ratio-16x9 overflow-hidden position-relative" style="border-radius: 24px;">
                         
-                        <video id="purSakoonVideo" src="./images/VDO.mp4" style="width: 100%; height: 100%; object-fit: cover;"></video>
+                        <!-- preload=none: 13MB video tab load ho jab user play kare -->
+                        <video id="purSakoonVideo" src="./images/VDO.mp4" preload="none" style="width: 100%; height: 100%; object-fit: cover;"></video>
                         
                         <div id="videoOverlay" class="position-absolute top-0 start-0 w-100 height-100 d-flex align-items-center justify-content-center" style="background: rgba(0, 0, 0, 0.25); cursor: pointer; transition: all 0.4s ease; width: 100%; height: 100%; z-index: 3;">
                             
@@ -1159,5 +1161,50 @@ video.controls = false;
 
 })();
 </script>
+
+<!-- ✅ Smart Video Loading: Vercel pe fast load ke liye videos lazy load hoti hain -->
+<script>
+(function() {
+  // Hero background video — page ready hone ke baad load karo
+  var heroBgVideo = document.getElementById('heroBgVideo');
+  if (heroBgVideo) {
+    // Page ka baaki content load ho jaye pehle, phir video load karo
+    window.addEventListener('load', function() {
+      heroBgVideo.setAttribute('preload', 'auto');
+      heroBgVideo.load();
+      heroBgVideo.play().catch(function() {
+        // Autoplay blocked on some browsers — silent fail OK
+      });
+    });
+  }
+
+  // Section video — sirf tab load karo jab user us section ke paas aaye
+  var sectionVideo = document.getElementById('purSakoonVideo');
+  var videoOverlay = document.getElementById('videoOverlay');
+  if (sectionVideo && videoOverlay) {
+    // IntersectionObserver: video load hogi jab section visible ho
+    if ('IntersectionObserver' in window) {
+      var videoObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            sectionVideo.setAttribute('preload', 'metadata');
+            sectionVideo.load();
+            videoObserver.unobserve(sectionVideo);
+          }
+        });
+      }, { rootMargin: '200px' });
+      videoObserver.observe(sectionVideo);
+    }
+
+    // Play button click
+    videoOverlay.addEventListener('click', function() {
+      sectionVideo.setAttribute('preload', 'auto');
+      sectionVideo.load();
+      sectionVideo.play();
+      videoOverlay.style.display = 'none';
+    });
+  }
+})();
+
 </body>
 </html>
