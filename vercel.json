@@ -8,16 +8,9 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/index.ts"
-    },
-    {
-      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|mp4|ico|woff|woff2|ttf|eot))",
-      "dest": "/Frontend/pur_sakoon/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/Frontend/pur_sakoon/$1"
+      "dest": "/api/index.ts"
     }
   ]
 }
+
