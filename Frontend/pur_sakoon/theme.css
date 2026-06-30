@@ -1,0 +1,757 @@
+/* ================================================================
+   PUR-SAKOON — PROFESSIONAL LIGHT THEME
+   Clean, clinical, trustworthy design with teal brand colors
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* ================================================================
+   DESIGN TOKENS — PROFESSIONAL CLINICAL THEME
+   ================================================================ */
+:root {
+  /* Core backgrounds - Light & Clean */
+  --bg-primary:    #ffffff;
+  --bg-secondary:  #f8fafb;
+  --bg-tertiary:   #f1f5f7;
+  --bg-accent:     #e8f4f2;
+
+  /* Card surfaces */
+  --card:          #ffffff;
+  --card-hover:    #f8fcfb;
+  --card-border:   rgba(13, 92, 81, 0.10);
+  --card-shadow:   0 2px 12px rgba(13, 92, 81, 0.06);
+
+  /* Brand Teal Colors */
+  --teal:          #14b8a6;
+  --teal-dark:     #0d5c51;
+  --teal-light:    #5eead4;
+  --teal-dim:      rgba(20, 184, 166, 0.08);
+  --teal-glow:     rgba(20, 184, 166, 0.12);
+
+  /* Typography */
+  --text-primary:   #1a3a36;
+  --text-secondary: #4a6d6a;
+  --text-muted:     #7a9996;
+
+  /* Borders */
+  --border:        rgba(13, 92, 81, 0.10);
+  --border-hover:  rgba(20, 184, 166, 0.30);
+
+  /* Shadows */
+  --shadow-sm:     0 2px 8px rgba(13, 92, 81, 0.06);
+  --shadow-md:     0 4px 16px rgba(13, 92, 81, 0.08);
+  --shadow-lg:     0 8px 32px rgba(13, 92, 81, 0.10);
+
+  /* Spring animation */
+  --spring:        cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Legacy aliases */
+  --primary-color:   #0d5c51;
+  --secondary-color: #14b8a6;
+  --void:          #ffffff;
+  --void-2:        #f8fafb;
+}
+
+/* ================================================================
+   BASE RESET
+   ================================================================ */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* Global text */
+h1, h2, h3, h4, h5, h6 { color: var(--text-primary) !important; }
+p, span, li             { color: var(--text-secondary); }
+.text-dark              { color: var(--text-primary) !important; }
+.text-muted             { color: var(--text-muted) !important; }
+.text-secondary         { color: var(--text-secondary) !important; }
+.text-white             { color: #ffffff !important; }
+.text-teal, .highlight  { color: var(--teal) !important; }
+
+/* Bootstrap overrides */
+.bg-white               { background-color: var(--bg-primary) !important; }
+.bg-light               { background-color: var(--bg-secondary) !important; }
+.border-light           { border-color: var(--border) !important; }
+
+/* Selection */
+::selection {
+  background: var(--teal-dim);
+  color: var(--teal-dark);
+}
+
+/* ================================================================
+   NAVBAR — PROFESSIONAL LIGHT
+   ================================================================ */
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(13, 92, 81, 0.08) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.navbar.scrolled-nav {
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.navbar-brand {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--teal-dark) !important;
+  text-decoration: none;
+}
+
+.navbar-brand span {
+  color: var(--teal) !important;
+}
+
+.nav-link {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--teal) !important;
+}
+
+.navbar-toggler {
+  border-color: rgba(13, 92, 81, 0.15) !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2314b8a6' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+@media (max-width: 991.98px) {
+  .custom-nav-menu {
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 16px !important;
+    margin-top: 12px !important;
+    box-shadow: var(--shadow-lg) !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .custom-nav-menu {
+    background: transparent !important;
+  }
+}
+
+/* ================================================================
+   SCROLL PROGRESS BAR
+   ================================================================ */
+#ps-scroll-bar {
+  background: linear-gradient(90deg, var(--teal-dark), var(--teal), var(--teal-light)) !important;
+  box-shadow: 0 0 8px var(--teal-glow) !important;
+}
+
+#ps-back-top {
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal)) !important;
+  box-shadow: var(--shadow-md) !important;
+  border: none !important;
+  color: #fff !important;
+}
+
+/* ================================================================
+   HERO SECTION
+   ================================================================ */
+.hero-section,
+.about-hero,
+.services-hero,
+.team-hero,
+.booking-hero {
+  background: linear-gradient(135deg, #f8fafb 0%, #ffffff 50%, #f0f9f8 100%) !important;
+  position: relative;
+}
+
+.hero-section::before,
+.hero-section::after {
+  display: none !important;
+}
+
+/* Hero title */
+.hero-title {
+  color: var(--text-primary) !important;
+}
+
+.hero-title .accent {
+  color: var(--teal) !important;
+}
+
+.page-title {
+  color: var(--text-primary) !important;
+}
+
+.page-title .accent {
+  color: var(--teal) !important;
+}
+
+/* Stat cards */
+.stat-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: all 0.3s ease !important;
+}
+
+.stat-card:hover {
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.stat-card h3 {
+  color: var(--teal) !important;
+}
+
+/* Feature boxes */
+.feature-box {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.feature-box:hover {
+  background: var(--card-hover) !important;
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.icon-circle {
+  background: var(--teal-dim) !important;
+  color: var(--teal) !important;
+}
+
+/* Hero badges */
+.hero-badge {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--teal) !important;
+}
+
+.hero-badge:hover {
+  background: var(--teal-dim) !important;
+  border-color: var(--border-hover) !important;
+}
+
+/* ================================================================
+   SECTION STYLING
+   ================================================================ */
+.section-tag {
+  color: var(--teal) !important;
+  background: var(--teal-dim) !important;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+/* ================================================================
+   BENTO / DANGER SECTION
+   ================================================================ */
+.danger-section,
+.pillars-section,
+.addiction-loop-section,
+.modalities-section {
+  background: var(--bg-secondary) !important;
+  border-top: 1px solid var(--border) !important;
+}
+
+.bento-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.bento-card:hover {
+  background: var(--card-hover) !important;
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.bento-content {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.bento-arrow-icon {
+  background: var(--teal-dim) !important;
+  color: var(--teal) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* ================================================================
+   PILLARS / MODALITY BOXES
+   ================================================================ */
+.pillar-card,
+.modality-box {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.pillar-card:hover,
+.modality-box:hover {
+  background: var(--card-hover) !important;
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* ================================================================
+   TESTIMONIALS
+   ================================================================ */
+.testimonials-section,
+.testimonials-responsive {
+  background: var(--bg-secondary) !important;
+  border-top: 1px solid var(--border) !important;
+}
+
+.testimonial-wrapper {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.testimonial-wrapper:hover {
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* ================================================================
+   SERVICE CARDS
+   ================================================================ */
+.service-card,
+.direct-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.service-card:hover,
+.direct-card:hover {
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.service-card-body {
+  background: var(--card) !important;
+}
+
+.service-icon-badge {
+  background: var(--teal-dim) !important;
+  color: var(--teal) !important;
+}
+
+.service-feature-tag {
+  background: var(--teal-dim) !important;
+  color: var(--teal) !important;
+}
+
+/* ================================================================
+   TEAM CARDS
+   ================================================================ */
+.team-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.team-card:hover {
+  background: var(--card-hover) !important;
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.team-badge {
+  background: var(--teal-dim) !important;
+  color: var(--teal) !important;
+}
+
+.team-social a {
+  background: var(--teal-dim) !important;
+  color: var(--teal) !important;
+}
+
+.team-social a:hover {
+  background: var(--teal) !important;
+  color: #fff !important;
+}
+
+/* ================================================================
+   VALUE CARDS (About Page)
+   ================================================================ */
+.value-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.value-card:hover {
+  border-color: var(--border-hover) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.value-icon {
+  background: var(--teal-dim) !important;
+  color: var(--teal) !important;
+}
+
+/* ================================================================
+   TIMELINE (About Page)
+   ================================================================ */
+.timeline-section {
+  background: var(--bg-primary) !important;
+}
+
+.timeline-container::before {
+  background: linear-gradient(180deg, var(--teal) 0%, var(--teal-dim) 100%) !important;
+}
+
+.timeline-dot {
+  background: var(--teal) !important;
+  box-shadow: 0 0 0 4px var(--teal-glow) !important;
+}
+
+.timeline-year {
+  background: var(--teal-dim) !important;
+  color: var(--teal) !important;
+}
+
+.timeline-content {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+.timeline-content:hover {
+  border-color: var(--border-hover) !important;
+}
+
+/* Quote box */
+.quote-box {
+  background: var(--card) !important;
+  border-left: 4px solid var(--teal) !important;
+}
+
+/* Stats banner */
+.stats-banner {
+  background: linear-gradient(135deg, var(--teal-dim) 0%, rgba(94, 234, 212, 0.05) 100%) !important;
+}
+
+.stat-item h2 {
+  color: var(--teal) !important;
+  background: none !important;
+  -webkit-text-fill-color: var(--teal) !important;
+}
+
+/* Story image wrapper */
+.story-section {
+  background: var(--bg-primary) !important;
+}
+
+.story-stat-item {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* ================================================================
+   VALUES SECTION
+   ================================================================ */
+.values-section {
+  background: var(--bg-secondary) !important;
+}
+
+/* ================================================================
+   CTA SECTION
+   ================================================================ */
+.cta-strip,
+.cta-section {
+  background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 100%) !important;
+  color: #fff !important;
+}
+
+.cta-strip h2,
+.cta-section h2,
+.cta-strip p,
+.cta-section p {
+  color: #fff !important;
+}
+
+/* ================================================================
+   BUTTONS
+   ================================================================ */
+.btn-custom {
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal)) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: var(--shadow-sm), 0 4px 16px rgba(20, 184, 166, 0.25) !important;
+}
+
+.btn-custom:hover {
+  box-shadow: var(--shadow-md), 0 8px 24px rgba(20, 184, 166, 0.35) !important;
+  color: #fff !important;
+}
+
+.btn-outline-dark,
+.btn-outline-light,
+.btn-outline-secondary {
+  color: var(--teal-dark) !important;
+  border-color: var(--teal) !important;
+  background: transparent !important;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-light:hover,
+.btn-outline-secondary:hover {
+  background: var(--teal) !important;
+  color: #fff !important;
+  border-color: var(--teal) !important;
+}
+
+.loop-break-btn {
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal)) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* ================================================================
+   FORMS
+   ================================================================ */
+.form-control,
+.form-select {
+  background: #fff !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--teal) !important;
+  box-shadow: 0 0 0 3px var(--teal-glow) !important;
+}
+
+.form-label {
+  color: var(--text-primary) !important;
+  font-weight: 500;
+}
+
+option {
+  background: #fff !important;
+  color: var(--text-primary) !important;
+}
+
+/* ================================================================
+   ACCORDION
+   ================================================================ */
+.accordion-item {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+}
+
+.accordion-button {
+  background: var(--card) !important;
+  color: var(--text-primary) !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--teal-dim) !important;
+  color: var(--teal-dark) !important;
+}
+
+.accordion-button::after {
+  filter: none !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2314b8a6'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+}
+
+.accordion-body {
+  background: var(--card) !important;
+  color: var(--text-secondary) !important;
+}
+
+/* ================================================================
+   GENERIC CARD
+   ================================================================ */
+.card {
+  background: var(--card) !important;
+  border-color: var(--border) !important;
+  color: var(--text-primary) !important;
+}
+
+.card-body {
+  background: transparent !important;
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+footer {
+  background: linear-gradient(180deg, #0d5c51 0%, #0a4a41 100%) !important;
+  color: #fff !important;
+  border-top: none !important;
+}
+
+footer h6 {
+  color: var(--teal-light) !important;
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: color 0.2s ease;
+}
+
+footer a:hover,
+.footer-link:hover {
+  color: var(--teal-light) !important;
+}
+
+footer p {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+footer hr {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.social-btn {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: var(--teal-light) !important;
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+}
+
+.map-container-wrapper,
+footer .map-container-wrapper {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.map-container-wrapper iframe {
+  filter: none !important;
+}
+
+/* ================================================================
+   SCROLL REVEAL
+   ================================================================ */
+[data-animate] {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+}
+
+.scroll-reveal,
+.reveal-card {
+  opacity: 0;
+  transform: translateY(26px) scale(0.98);
+  transition: opacity 0.58s var(--ease-out), transform 0.58s var(--ease-out);
+}
+
+.scroll-reveal.is-visible,
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ================================================================
+   CUSTOM CURSOR — TEAL VARIANT
+   ================================================================ */
+#cursor-ring {
+  border-color: rgba(20, 184, 166, 0.4) !important;
+}
+
+#cursor-dot {
+  background: var(--teal) !important;
+}
+
+body.cursor-hover #cursor-ring {
+  border-color: var(--teal) !important;
+  background: var(--teal-glow) !important;
+}
+
+/* ================================================================
+   PHILOSOPHY SECTION
+   ================================================================ */
+.philosophy-section {
+  background: var(--bg-secondary) !important;
+}
+
+.philosophy-box {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* ================================================================
+   BOOKING PAGE
+   ================================================================ */
+.booking-section {
+  background: var(--bg-secondary) !important;
+}
+
+.booking-info-card,
+.booking-form-card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+/* ================================================================
+   REDUCED MOTION
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:   0.01ms !important;
+    transition-duration:  0.01ms !important;
+  }
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 991px) {
+  .hero-section::before,
+  .hero-section::after,
+  .about-hero::before,
+  .services-hero::before,
+  .team-hero::before {
+    display: none !important;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .hero-video-wrapper {
+    display: block !important;
+  }
+
+  .hero-video-wrapper .bg-video-layer {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+    object-fit: cover !important;
+    opacity: 0.65 !important;
+    filter: brightness(0.65) saturate(1.05) !important;
+  }
+}

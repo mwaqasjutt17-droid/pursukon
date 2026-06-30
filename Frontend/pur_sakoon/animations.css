@@ -1,0 +1,248 @@
+/* ================================================================
+   PUR-SAKOON — ANIMATIONS ENGINE v5.0
+   Structural animation layer. Loaded BEFORE dark-theme.css.
+   Contains: @keyframes, transitions, scroll-reveal states, cursor, spring tokens.
+   ================================================================ */
+
+/* Easing Tokens */
+:root {
+  --spring:      cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:     cubic-bezier(0.4, 0, 1, 1);
+  --ease-snappy: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ================================================================
+   PAGE TRANSITIONS
+   ================================================================ */
+@keyframes ps-page-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+body {
+  animation: ps-page-enter 0.55s var(--ease-out) both;
+}
+
+/* ================================================================
+   SCROLL REVEAL STATES
+   ================================================================ */
+.scroll-reveal,
+.reveal-card {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition:
+    opacity 0.6s var(--ease-out),
+    transform 0.6s var(--ease-out);
+}
+.scroll-reveal.is-visible,
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger helpers */
+.stagger-children > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { transition-delay: 0.12s; }
+.stagger-children > *:nth-child(3) { transition-delay: 0.19s; }
+.stagger-children > *:nth-child(4) { transition-delay: 0.26s; }
+.stagger-children > *:nth-child(5) { transition-delay: 0.33s; }
+.stagger-children > *:nth-child(6) { transition-delay: 0.40s; }
+
+/* data-animate hidden state */
+[data-animate] {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* ================================================================
+   FLOAT KEYFRAMES (hero feature boxes)
+   ================================================================ */
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+@keyframes floatDown {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(14px); }
+}
+
+.float-up   { animation: floatUp   5.2s ease-in-out infinite; }
+.float-down { animation: floatDown 5.2s ease-in-out infinite; }
+
+/* ================================================================
+   PARTICLE DRIFT
+   ================================================================ */
+@keyframes particleDrift {
+  0%   { transform: translateY(0) translateX(0); opacity: 0.15; }
+  30%  { transform: translateY(-28px) translateX(8px); opacity: 0.28; }
+  70%  { transform: translateY(-58px) translateX(-6px); opacity: 0.18; }
+  100% { transform: translateY(-90px) translateX(18px); opacity: 0; }
+}
+
+.ps-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: particleDrift linear infinite;
+}
+
+/* ================================================================
+   ORBIT ANIMATIONS
+   ================================================================ */
+@keyframes orbitSpin   { to { transform: rotate(360deg); } }
+@keyframes counterSpin { to { transform: rotate(-360deg); } }
+@keyframes dashScroll  { to { stroke-dashoffset: -40; } }
+
+.orbit-track { animation: orbitSpin   14s linear infinite; }
+.orbit-node  { animation: counterSpin 14s linear infinite; }
+.arrow-path  { animation: dashScroll  2s  linear infinite; }
+
+/* ================================================================
+   RIPPLE EFFECT
+   ================================================================ */
+.ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(20, 184, 166, 0.22);
+  transform: scale(0);
+  animation: rippleExpand 0.6s var(--ease-out) forwards;
+  pointer-events: none;
+}
+@keyframes rippleExpand {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* ================================================================
+   SCROLL PROGRESS BAR + BACK-TO-TOP
+   ================================================================ */
+#ps-scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  z-index: 99999;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+#ps-back-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s var(--spring), visibility 0.35s;
+  z-index: 9999;
+}
+#ps-back-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+#ps-back-top:hover { transform: translateY(-4px) scale(1.08); }
+
+/* ================================================================
+   CUSTOM CURSOR
+   ================================================================ */
+@media (hover: hover) and (pointer: fine) {
+  body { cursor: none; }
+
+  #cursor-ring {
+    position: fixed;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(20, 184, 166, 0.6);
+    pointer-events: none;
+    z-index: 2147483646;
+    transition: width 0.25s var(--spring), height 0.25s var(--spring),
+                background 0.25s ease, border-color 0.25s ease;
+    top: 0; left: 0;
+    will-change: transform;
+  }
+
+  #cursor-dot {
+    position: fixed;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #14b8a6;
+    pointer-events: none;
+    z-index: 2147483647;
+    top: 0; left: 0;
+    will-change: transform;
+    transition: transform 0.05s linear;
+  }
+
+  body.cursor-hover #cursor-ring {
+    width: 52px;
+    height: 52px;
+    border-color: rgba(13, 92, 81, 0.75);
+    background: rgba(20, 184, 166, 0.08);
+  }
+
+  body.cursor-click #cursor-ring {
+    width: 28px;
+    height: 28px;
+    background: rgba(20, 184, 166, 0.18);
+  }
+}
+
+/* ================================================================
+   BUTTON ANIMATION UTILITIES
+   ================================================================ */
+@keyframes pulsePrimary {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 92, 81, 0.55); }
+  60%       { box-shadow: 0 0 0 14px rgba(13, 92, 81, 0); }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
+  60%       { box-shadow: 0 0 0 14px rgba(20, 184, 166, 0); }
+}
+
+.btn-animate-pulse-primary { animation: pulsePrimary 2.4s ease-in-out infinite; }
+.btn-animate-glow          { animation: glowPulse    2.4s ease-in-out infinite; }
+.btn-hover-bounce:hover    { transform: translateY(-3px) scale(1.03) !important; }
+
+/* ================================================================
+   NAVBAR SCROLL TRANSITION
+   ================================================================ */
+.navbar {
+  transition: background 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+/* ================================================================
+   REDUCED MOTION
+   ================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:   0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:  0.01ms !important;
+  }
+  .scroll-reveal, .reveal-card { opacity: 1; transform: none; }
+  [data-animate] { opacity: 1; visibility: visible; }
+}
+
+/* ================================================================
+   RESPONSIVE: disable heavy animations on mobile/tablet
+   ================================================================ */
+@media (max-width: 991px) {
+  .float-up,
+  .float-down { animation: none; }
+}

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Team — Pur-Sakoon Rehabilitation Center</title>
+  <link rel="icon" type="image/png" href="./images/logo (2).png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="theme.css">
+
+  <style>
+    :root {
+      --primary-color:   #0d5c51;
+      --secondary-color: #14b8a6;
+    }
+
+    .team-hero {
+      padding-top: 140px;
+      padding-bottom: 60px;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 20%, rgba(13,92,81,0.12) 0%, transparent 50%),
+                  radial-gradient(ellipse at 40% 80%, rgba(20,184,166,0.06) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    .page-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .page-title .accent { color: var(--secondary-color); }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.76rem; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .team-section { padding: 80px 0; }
+
+    .team-card {
+      border-radius: 28px;
+      overflow: hidden;
+      transition: all 0.4s var(--spring);
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+
+    .team-card-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .team-card:hover .team-card-image {
+      transform: scale(1.05);
+    }
+
+    .team-card-body {
+      padding: 24px;
+      position: relative;
+    }
+
+    .team-badge {
+      position: absolute;
+      top: -16px;
+      left: 24px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .team-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .team-card .role {
+      font-size: 0.85rem;
+      color: var(--secondary-color);
+      margin-bottom: 12px;
+    }
+
+    .team-card p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .team-social {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .team-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .team-social a:hover {
+      transform: translateY(-3px);
+    }
+
+    .philosophy-section {
+      padding: 100px 0;
+      background: var(--void-2);
+    }
+
+    .philosophy-box {
+      border-radius: 28px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .philosophy-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--secondary-color), rgba(20,184,166,0.2));
+    }
+
+    @media (max-width: 991px) {
+      .team-hero { padding-top: 120px; min-height: unset; }
+      .team-section { padding: 60px 0; }
+      .team-card-image { height: 240px; }
+      .philosophy-section { padding: 70px 0; }
+    }
+
+    @media (max-width: 767px) {
+      .team-hero { padding-top: 100px; }
+      .team-section { padding: 48px 0; }
+      .team-card-image { height: 200px; }
+      .philosophy-section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top py-0 animate__animated animate__slideInDown" style="height:76px;">
+  <div class="container-fluid px-3 px-lg-4 d-flex align-items-center justify-content-between" style="height:100%;">
+    <a class="navbar-brand p-0 m-0 d-flex align-items-center" href="index.html" style="height:100%;">
+      <img src="./images/logo (2).png" alt="Pur-Sakoon Logo" style="height:100px;width:auto;object-fit:contain;">
+    </a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end custom-nav-menu p-3 p-lg-0" id="navbarNav">
+      <ul class="navbar-nav align-items-center gap-1 py-2">
+        <li class="nav-item"><a class="nav-link fw-semibold px-3" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold px-3" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold px-3" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold px-3 active" href="team.html">Team</a></li>
+        <li class="nav-item ms-lg-2">
+          <a class="btn btn-custom px-4 py-2 btn-animate-pulse-primary" href="book.html">
+            <i class="fa-solid fa-calendar-check me-2"></i>Book Appointment
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="team-hero">
+  <div class="container position-relative" style="z-index:2;">
+    <div class="row align-items-center">
+      <div class="col-lg-8 mx-auto text-center animate__animated animate__fadeInUp">
+        <span class="section-tag" style="color:var(--secondary-color);">• Expert Care Team •</span>
+        <h1 class="page-title mb-4">
+          Meet Our <span class="accent">Team</span>
+        </h1>
+        <p style="font-size:1.05rem;line-height:1.75;max-width:640px;margin:0 auto;">
+          Our multidisciplinary team of certified professionals brings decades of combined experience in addiction treatment and mental health care.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8fafc; padding: 100px 20px; color: #1e293b; overflow: hidden;">
+    
+    <style>
+        /* Initial state for scroll reveal animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        .scroll-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Premium interactive card design */
+        .team-card {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px !important;
+            padding: 50px 35px !important;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .team-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background: linear-gradient(90deg, #14b8a6, #b45309);
+            border-radius: 4px 4px 0 0;
+            transform: scaleX(0);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Hover States */
+        .team-card:hover {
+            transform: translateY(-12px) !important;
+            border-color: #e2e8f0 !important;
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08) !important;
+        }
+
+        .team-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin-bottom: 28px;
+            z-index: 1;
+        }
+
+        .avatar-glow {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            box-shadow: 0 0 0 4px #14b8a6;
+            transition: all 0.4s ease;
+        }
+
+        .team-card:hover .avatar-glow {
+            box-shadow: 0 0 0 6px #b45309;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 40px 20px !important;
+            }
+        }
+    </style>
+
+<div class="main-container" style="max-width: 1200px; margin: 0 auto; background: #ffffff; padding: 60px 50px; border-radius: 32px; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.03); border: 1px solid #edf2f7;">
+    
+    <div class="scroll-reveal" style="margin-bottom: 60px; text-align: center;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 14px;">
+            <span style="width: 8px; height: 8px; background-color: #b45309; border-radius: 50%; display: inline-block;"></span>
+            <span style="text-transform: uppercase; font-size: 13px; font-weight: 700; letter-spacing: 2.5px; color: #64748b;">Experts Behind Sakoon</span>
+        </div>
+        <h2 style="font-size: 42px; font-weight: 800; color: #0f172a; margin: 0; letter-spacing: -0.5px;">
+            Meet Our Specialists
+        </h2>
+        <span style="display: block; width: 70px; height: 5px; background: linear-gradient(90deg, #14b8a6, #b45309); margin: 20px auto 0 auto; border-radius: 10px;"></span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px;">
+        
+        <div class="team-card scroll-reveal" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <div class="avatar-container">
+                <div class="avatar-glow" style="background-image: url('https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=200&h=200&q=80');"></div>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; color: #0f172a; margin: 0 0 6px 0; letter-spacing: -0.3px;">Dr. Arsalan Khan</h3>
+            <p style="font-size: 13px; color: #0d9488; font-weight: 700; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 1px;">Chief Psychiatrist</p>
+            <div style="width: 30px; height: 1px; background-color: #e2e8f0; margin-bottom: 16px;"></div>
+            <p style="font-size: 14.5px; color: #64748b; margin: 0; line-height: 1.7;">12+ years of experience in clinical psychology and advanced addiction therapies.</p>
+        </div>
+
+        <div class="team-card scroll-reveal" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <div class="avatar-container">
+                <div class="avatar-glow" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&h=200&q=80');"></div>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; color: #0f172a; margin: 0 0 6px 0; letter-spacing: -0.3px;">Sarah Ahmed</h3>
+            <p style="font-size: 13px; color: #0d9488; font-weight: 700; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 1px;">Family Counselor</p>
+            <div style="width: 30px; height: 1px; background-color: #e2e8f0; margin-bottom: 16px;"></div>
+            <p style="font-size: 14.5px; color: #64748b; margin: 0; line-height: 1.7;">Specialized in relationship healing, family integration, and trauma recovery protocols.</p>
+        </div>
+
+        <div class="team-card scroll-reveal" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <div class="avatar-container">
+                <div class="avatar-glow" style="background-image: url('https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=200&h=200&q=80');"></div>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 700; color: #0f172a; margin: 0 0 6px 0; letter-spacing: -0.3px;">Dr. Zain Malik</h3>
+            <p style="font-size: 13px; color: #0d9488; font-weight: 700; margin: 0 0 16px 0; text-transform: uppercase; letter-spacing: 1px;">Detox Specialist</p>
+            <div style="width: 30px; height: 1px; background-color: #e2e8f0; margin-bottom: 16px;"></div>
+            <p style="font-size: 14.5px; color: #64748b; margin: 0; line-height: 1.7;">Expert in managing ultra-safe medical detoxification and physical withdrawal stabilization.</p>
+        </div>
+
+    </div>
+
+</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -80px 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const hiddenElements = document.querySelectorAll('.scroll-reveal');
+            hiddenElements.forEach((el) => observer.observe(el));
+        });
+    </script>
+</section>
+<!-- PHILOSOPHY SECTION -->
+<section class="philosophy-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-8 mx-auto text-center" data-animate="animate__fadeIn">
+        <span class="section-tag" style="color:var(--secondary-color);">• Our Approach •</span>
+        <h2 class="display-5 fw-bold">Why Our <span style="color:var(--secondary-color);">Team Matters</span></h2>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 scroll-reveal">
+        <div class="philosophy-box" style="background:var(--card);">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div style="width:48px;height:48px;border-radius:14px;background:rgba(20,184,166,0.10);display:flex;align-items:center;justify-content:center;color:var(--secondary-color);font-size:1.2rem;">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h5 class="fw-bold mb-0" style="color:var(--text-primary);">Certified Experts</h5>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.7;">Every team member holds advanced certifications in addiction medicine, psychology, or nursing. Continuous training ensures cutting-edge care.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 scroll-reveal">
+        <div class="philosophy-box" style="background:var(--card);">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div style="width:48px;height:48px;border-radius:14px;background:rgba(59,130,246,0.10);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:1.2rem;">
+              <i class="fa-solid fa-users-gear"></i>
+            </div>
+            <h5 class="fw-bold mb-0" style="color:var(--text-primary);">Collaborative Care</h5>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.7;">Our multidisciplinary team meets daily to discuss each patient's progress, ensuring comprehensive and coordinated treatment plans.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 scroll-reveal">
+        <div class="philosophy-box" style="background:var(--card);">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div style="width:48px;height:48px;border-radius:14px;background:rgba(124,58,237,0.10);display:flex;align-items:center;justify-content:center;color:#a78bfa;font-size:1.2rem;">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h5 class="fw-bold mb-0" style="color:var(--text-primary);">Compassionate Heart</h5>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.7;">Beyond credentials, our team is chosen for their empathy and dedication. We treat every patient like family, not just a case file.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip py-5 position-relative" style="z-index: 2;">
+  <div class="container text-center text-white" data-animate="animate__fadeInUp">
+    <h2 class="display-5 fw-bold mb-3">Ready to <span style="color:var(--secondary-color);">Reclaim Your Life?</span></h2>
+    <p style="max-width:520px;margin:0 auto 36px;line-height:1.75;">Our clinical team is standing by 24/7. One call changes everything.</p>
+    <div class="d-flex gap-3 justify-content-center flex-wrap">
+      <a href="book.html" class="btn btn-custom btn-lg px-5 py-3 btn-animate-pulse-primary">
+        <i class="fa-solid fa-calendar-check me-2"></i>Book Appointment
+      </a>
+      <a href="tel:+923099846835" class="btn btn-lg px-5 py-3 btn-animate-glow"
+        style="background:rgba(255,255,255,0.14);color:#fff;border:1px solid rgba(255,255,255,0.22);border-radius:12px;font-weight:600;transition:all 0.3s ease;">
+        <i class="fa-solid fa-phone me-2"></i>Call Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="position-relative" style="z-index: 1; background-color: #111827; padding: 60px 0 30px;">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-xl-3 col-lg-3 col-md-6">
+<div class="d-flex align-items-center mb-2">
+    <img src="./images/logo (2).png"
+         alt="Pur-Sakoon Logo"
+         style="height: auto; width: 200px; object-fit: contain; margin-right: 12px;">
+</div><p style="font-size: 0.87rem; line-height: 1.7; margin-bottom: 24px; color: var(--text-muted);">
+    Pakistan's premier evidence-based rehabilitation center, rebuilding lives through clinical excellence and compassionate care.
+</p>     
+     <div class="d-flex gap-2">
+          <a href="https://www.facebook.com/share/18JkBkpmCJ/" class="social-btn" style="width:36px;height:36px;border-radius:50%;background:rgba(20,184,166,0.07);border:1px solid rgba(20,184,166,0.14);display:flex;align-items:center;justify-content:center;color:var(--secondary-color);font-size:0.85rem;text-decoration:none;transition:all 0.3s ease;">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-btn" style="width:36px;height:36px;border-radius:50%;background:rgba(20,184,166,0.07);border:1px solid rgba(20,184,166,0.14);display:flex;align-items:center;justify-content:center;color:var(--secondary-color);font-size:0.85rem;text-decoration:none;transition:all 0.3s ease;">
+            <i class="fa-brands fa-instagram"></i>
+          </a><a href="https://www.tiktok.com/@sakoonrehab0?_r=1&_t=ZS-91wRI0O2Osa" target="_blank" class="social-btn" style="width:36px;height:36px;border-radius:50%;background:rgba(20,184,166,0.07);border:1px solid rgba(20,184,166,0.14);display:flex;align-items:center;justify-content:center;color:var(--secondary-color);font-size:0.85rem;text-decoration:none;transition:all 0.3s ease;">
+  <i class="fa-brands fa-tiktok"></i>
+</a>
+<a href="https://wa.me/923099846835" target="_blank" class="social-btn" style="width:36px;height:36px;border-radius:50%;background:rgba(20,184,166,0.07);border:1px solid rgba(20,184,166,0.14);display:flex;align-items:center;justify-content:center;color:var(--secondary-color);font-size:0.85rem;text-decoration:none;transition:all 0.3s ease;">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>           </div>
+      </div>
+
+      <div class="col-xl-3 col-lg-3 col-md-6">
+        <h6 class="fw-bold text-uppercase mb-4" style="font-size:0.74rem;letter-spacing:2px;color:var(--secondary-color);">Quick Links</h6>
+        <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+          <li><a href="index.html" class="footer-link text-decoration-none" style="font-size:0.87rem;color:var(--text-muted);transition:color 0.2s;"><i class="fa-solid fa-angle-right me-2 opacity-50" style="font-size:0.65rem;"></i>Home</a></li>
+          <li><a href="about.html" class="footer-link text-decoration-none" style="font-size:0.87rem;color:var(--text-muted);transition:color 0.2s;"><i class="fa-solid fa-angle-right me-2 opacity-50" style="font-size:0.65rem;"></i>About Us</a></li>
+          <li><a href="services.html" class="footer-link text-decoration-none" style="font-size:0.87rem;color:var(--text-muted);transition:color 0.2s;"><i class="fa-solid fa-angle-right me-2 opacity-50" style="font-size:0.65rem;"></i>Services</a></li>
+          <li><a href="team.html" class="footer-link text-decoration-none" style="font-size:0.87rem;color:var(--text-muted);transition:color 0.2s;"><i class="fa-solid fa-angle-right me-2 opacity-50" style="font-size:0.65rem;"></i>Our Team</a></li>
+          <li><a href="book.html" class="footer-link text-decoration-none" style="font-size:0.87rem;color:var(--text-muted);transition:color 0.2s;"><i class="fa-solid fa-angle-right me-2 opacity-50" style="font-size:0.65rem;"></i>Book Appointment</a></li>
+        </ul>
+      </div>
+
+      <div class="col-xl-3 col-lg-3 col-md-6">
+        <h6 class="fw-bold text-uppercase mb-4" style="font-size:0.74rem;letter-spacing:2px;color:var(--secondary-color);">Contact Us</h6>
+        <ul class="list-unstyled d-flex flex-column gap-3">
+          <li class="d-flex align-items-start gap-3">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(20,184,166,0.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa-solid fa-phone" style="font-size:0.8rem;color:var(--secondary-color);"></i>
+            </div>
+            <a href="tel:+923099846835" style="font-size:0.87rem;text-decoration:none;color:var(--text-muted);">+92 3099846835</a>
+          </li>
+          <li class="d-flex align-items-center gap-3">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(20,184,166,0.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa-solid fa-envelope" style="font-size:0.8rem;color:var(--secondary-color);"></i>
+            </div>
+            <a href="mailto:purSakoon@gmail.com" style="font-size:0.87rem;text-decoration:none;color:var(--text-muted);">purSakoon@gmail.com</a>
+          </li>
+          <li class="d-flex align-items-start gap-3">
+            <div style="width:32px;height:32px;border-radius:8px;background:rgba(20,184,166,0.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fa-solid fa-location-dot" style="font-size:0.8rem;color:var(--secondary-color);"></i>
+            </div>
+            <p style="font-size:0.85rem;margin:0;line-height:1.55;color:var(--text-muted);">New Multan Colony, Services Road, House #26-X, Near Shah Rukn-E-Alam Metro Station, Multan.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-xl-3 col-lg-3 col-md-6">
+        <h6 class="fw-bold text-uppercase mb-4" style="font-size:0.74rem;letter-spacing:2px;color:var(--secondary-color);">Find Us</h6>
+        <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(20,184,166,0.12);height:160px;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3448.24330104533!2d71.4925!3d30.2011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDEyJzA0LjAiTiA3McKwMjknMzMuMCJF!5e0!3m2!1sen!2spk!4v1700000000000!5m2!1sen!2spk"
+                  class="w-100 border-0" style="height:160px;filter:invert(0.85) hue-rotate(180deg) contrast(1.05);display:block;"
+                  allowfullscreen loading="lazy" title="Pur-Sakoon Location"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <hr style="margin:56px 0 24px;border-color:rgba(255,255,255,0.05);">
+
+    <div class="row align-items-center g-3">
+      <div class="col-md-6 text-center text-md-start">
+        <p style="font-size:0.8rem;margin:0;color:var(--text-muted);">© 2026 Pur-Sakoon. All Rights Reserved.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <p style="font-size:0.8rem;margin:0;color:var(--text-muted);">Designed by <a href="#" style="color:var(--secondary-color);text-decoration:none;font-weight:600;">CodedClouds</a></p>
+      </div>
+    </div>
+  </div>
+</footer> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+(function () {
+  'use strict';
+
+  document.documentElement.style.backgroundColor = '#ffffff';
+
+  /* Custom Cursive Pointer Cursor (desktop only) */
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const ring = document.createElement('div'); ring.id = 'cursor-ring';
+    const dot  = document.createElement('div'); dot.id  = 'cursor-dot';
+    document.documentElement.appendChild(ring);
+    document.documentElement.appendChild(dot);
+
+    // CSS Styling: Rounded elements ko bilkul khatam kar diya
+    const style = document.createElement('style');
+    style.innerHTML = `
+      #cursor-dot {
+        position: fixed; top: 0; left: 0; width: 24px; height: 24px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2314b8a6'%3E%3Cpath d='M21 11h-3.26c-.48-1.58-1.85-2.78-3.57-2.96V5c0-1.66-1.34-3-3-3S8.17 3.34 8.17 5v4.11c-1.37.34-2.42 1.43-2.62 2.82L4.22 17.1c-.26 1.84 1.05 3.53 2.89 3.79.13.02.26.03.39.03h7.73c2.42 0 4.54-1.64 5.15-3.98l1.12-4.28c.18-.68-.22-1.38-.9-1.56-.16-.04-.33-.04-.5-.02z'/%3E%3C/svg%3E") no-repeat center;
+        pointer-events: none; z-index: 2147483647; transform: translate(0, 0);
+        transition: transform 0.1s ease;
+      }
+      #cursor-ring {
+        position: fixed; top: 0; left: 0; width: 0; height: 0;
+        pointer-events: none; z-index: 2147483646;
+      }
+      .cursor-hover #cursor-dot {
+        transform: scale(1.2);
+        filter: hue-rotate(30deg);
+      }
+    `;
+    document.head.appendChild(style);
+
+    let mx = 0, my = 0;
+    window.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      // Icon ki tip ko click point par align karne ke liye thoda offset kiya
+      dot.style.left = `${mx - 2}px`;
+      dot.style.top = `${my - 2}px`;
+    }, { passive: true });
+
+    const hoverSel = 'a,button,.btn,.bento-card,.pillar-card,.modality-box,.feature-box,input,textarea,.social-btn,.orbit-node';
+    document.addEventListener('mouseover', e => { if (e.target.closest(hoverSel)) document.body.classList.add('cursor-hover'); });
+    document.addEventListener('mouseout', e => { if (e.target.closest(hoverSel)) document.body.classList.remove('cursor-hover'); });
+    window.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
+    window.addEventListener('mouseup', () => document.body.classList.remove('cursor-click'));
+  }
+
+  /* Bento Spotlight Mouse Tracking */
+  document.querySelectorAll('.bento-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  });
+
+  /* Ripple Effect */
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.btn, button, a.btn, .loop-break-btn, .cta-button');
+    if (!btn) return;
+    const r = btn.getBoundingClientRect(), s = Math.max(r.width, r.height);
+    const x = e.clientX - r.left - s / 2, y = e.clientY - r.top - s / 2;
+    const rp = document.createElement('span');
+    rp.className = 'ripple-circle';
+    rp.style.cssText = `width:${s}px;height:${s}px;left:${x}px;top:${y}px;`;
+    btn.style.position = 'relative';
+    btn.appendChild(rp);
+    setTimeout(() => rp.remove(), 650);
+  });
+
+  /* Trailing Sparkles (Ab yeh stars ya dots ke bajaye halki cursive ribbon lines banayega) */
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    window.addEventListener('mousemove', e => {
+      const s = document.createElement('div');
+      // Ek barik flat line/ribbon effect ke liye width aur height badal di
+      s.style.cssText = `position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:12px;height:2px;background:#14b8a6;pointer-events:none;z-index:2147483644;transform:translate(-50%,-50%) rotate(45deg);transition:opacity .4s, transform .4s;opacity:0.6;`;
+      document.documentElement.appendChild(s);
+      requestAnimationFrame(() => {
+        s.style.opacity = '0';
+        s.style.transform = `translate(-50%, calc(-50% + 10px)) rotate(90deg) scaleX(0)`;
+      });
+      setTimeout(() => s.remove(), 400);
+    }, { passive: true });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    /* Scroll progress bar + back-to-top */
+    const bar = document.createElement('div'); bar.id = 'ps-scroll-bar'; document.body.prepend(bar);
+    const topBtn = document.createElement('button'); topBtn.id = 'ps-back-top';
+    topBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+    topBtn.setAttribute('aria-label', 'Back to top');
+    document.body.appendChild(topBtn);
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    function onScroll() {
+      const st = window.scrollY;
+      const dh = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (dh > 0 ? (st / dh * 100) : 0) + '%';
+      document.querySelector('.navbar')?.classList.toggle('scrolled-nav', st > 60);
+      topBtn.classList.toggle('visible', st > 400);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* Scroll Reveal */
+    const revealObs = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+
+        if (el.hasAttribute('data-animate')) {
+          const cls = el.getAttribute('data-animate');
+          const delay = parseFloat(el.style.transitionDelay || el.style.animationDelay) || 0;
+          setTimeout(() => {
+            el.style.visibility = 'visible';
+            el.style.opacity = '1';
+            el.classList.add('animate__animated', cls, 'animate-visible');
+          }, delay * 1000);
+        }
+
+        if (el.classList.contains('scroll-reveal') || el.classList.contains('reveal-card')) {
+          el.classList.add('is-visible');
+        }
+
+        obs.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.10 });
+
+    document.querySelectorAll(
+      '[data-animate], .scroll-reveal, .reveal-card, .bento-card, .pillar-card, .feature-box, .modality-box, .team-card'
+    ).forEach(el => revealObs.observe(el));
+
+    /* Active nav link */
+    const cur = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link').forEach(l => {
+      const href = l.getAttribute('href') || '';
+      if (href === cur || (cur === '' && href === 'index.html')) l.classList.add('active');
+    });
+
+    /* Animated counters */
+    const statEls = document.querySelectorAll('.stat-card h3');
+    const cObs = new IntersectionObserver((entries, o) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const txt = el.textContent.trim();
+        const num = parseFloat(txt.replace(/[^0-9.]/g, ''));
+        if (isNaN(num)) return;
+        const suffix = txt.replace(/[0-9.]/g, '');
+        const dur = 1100, start = performance.now();
+        function tick(now) {
+          const p = Math.min((now - start) / dur, 1);
+          const ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(ease * num) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        o.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    statEls.forEach(el => cObs.observe(el));
+  });
+
+})();
+</script></body>
+</html>
